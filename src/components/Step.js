@@ -1,6 +1,7 @@
 import steps from '../form-data.json';
 import { useSelector } from 'react-redux';
 import { Confirmation } from './Confirmation';
+import './Step.css'
 
 export const Step = (props) => {
 const step_id = useSelector(state => state.current_step);
@@ -56,9 +57,11 @@ switch (type) {
 
 
     return <div className='Step'>
-        <h2 className='step-header'>{cur.header}</h2>
-        <h3 className='step-subheader'>{cur.subheader}</h3>
-        {mainBlock}
-        <Confirmation/>
-    </div>
+            <div className='container'>
+                <h2 className='step-header'>{cur.header}</h2>
+                <h3 className='step-subheader'>{cur.subheader}</h3>
+                {mainBlock}
+                <Confirmation/>
+            </div>   
+        </div>
 }

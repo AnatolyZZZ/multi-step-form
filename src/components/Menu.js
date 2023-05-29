@@ -1,27 +1,25 @@
 import steps from '../form-data.json';
+import './Menu.css'
+import { useSelector } from 'react-redux';
 
 export const Menu = (props) => {
+    const cur_step = useSelector(state => state.current_step);
+    const steps_with_summary = steps.steps 
     return <div className='menu'>
-        {steps.steps.map((elt, idx) => {
+        {steps_with_summary.map((elt, idx) => {
+            const classes = (idx === cur_step) ?  'menu-number number-selected' : 'menu-number'
             return <div className='menu-item' key={idx}>
-                        <div className='menu-number'>
+                        <div>
+                        <div className={classes}>
                             {idx + 1}
                         </div>
-                        <div className='desktop-only'>
+                        </div>
+                        <div className='desktop-only menu-item-info'>
                             <h4>Step{idx + 1}</h4>
                             <h3>{elt.short}</h3>
                         </div>
                     </div>}
                 )
-        }
-        <div className='menu-item'>
-            <div className='menu-number'>
-                {steps.length}
-            </div>
-            <div className='desktop-only'>
-                <h4>Step{steps.length}</h4>
-                <h3>Summary</h3>
-            </div>
-        </div>        
+        }       
     </div>
 }

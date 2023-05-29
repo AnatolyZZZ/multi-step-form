@@ -1,0 +1,14 @@
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.Step {
+    height: 90vh;
+}
+
+@media (min-width : 640px) {
+    .container {
+        width: 70%;
+    }
+}

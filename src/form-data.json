@@ -5,9 +5,9 @@
         "subheader" : "Please provide your name, email address, and phone number",
         "type" : "freeform",
         "questions" : [
-            {"name" : "Name", "placeholder" : "Stephen King", "var" : "name"},
-            {"name" : "Email", "placeholder" : "stephenking@lorem.com", "var" : "email"},
-            {"name" : "Phone Number", "placeholder" : "+1 234 567 890", "var" : "phone"}
+            {"name" : "Name", "placeholder" : "e.g. Stephen King", "var" : "name"},
+            {"name" : "Email", "placeholder" : "e.g. stephenking@lorem.com", "var" : "email"},
+            {"name" : "Phone Number", "placeholder" : "e.g. +1 234 567 890", "var" : "phone"}
         ]
     },
    {
@@ -76,7 +76,8 @@
     {
         "header" : "Finishing up",
         "subheader" : "Double-check everything looks OK before confirming",
-        "type" : "summary"
+        "type" : "summary",
+        "short" : "Summary"
     }
     ]
 }
