@@ -2,11 +2,11 @@
     {
         "header" : "Personal info",
         "short" : "Your info",
-        "subheader" : "Please provide your name, email address, and phone number",
+        "subheader" : "Please provide your name, email address, and phone number.",
         "type" : "freeform",
         "questions" : [
             {"name" : "Name", "placeholder" : "e.g. Stephen King", "var" : "name"},
-            {"name" : "Email", "placeholder" : "e.g. stephenking@lorem.com", "var" : "email"},
+            {"name" : "Email Address", "placeholder" : "e.g. stephenking@lorem.com", "var" : "email"},
             {"name" : "Phone Number", "placeholder" : "e.g. +1 234 567 890", "var" : "phone"}
         ]
     },

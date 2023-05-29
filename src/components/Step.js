@@ -1,6 +1,8 @@
 import steps from '../form-data.json';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Confirmation } from './Confirmation';
+import { ErrorMsg } from './ErrorMsg';
+import { setField } from '../actions';
 import './Step.css'
 
 export const Step = (props) => {
@@ -9,12 +11,19 @@ const cur_state = useSelector(state => state);
 const yearly = useSelector(state => state.yearly);
 const cur = steps.steps[step_id];
 const type = cur.type;
+const dispatch = useDispatch();
 
 let mainBlock;
 switch (type) {
     case 'freeform' : 
         mainBlock = cur.questions.map((elt, idx) => {
-            return <input key={idx} placeholder={elt.placeholder} value={cur_state[elt.var]}/>
+            return <div>
+                <div className='flex-between'>
+                    <p className='label'>{elt.name}</p>
+                    <ErrorMsg var={elt.var}/>
+                </div>
+                <input key={idx} placeholder={elt.placeholder} value={cur_state[elt.var]} onChange={(e) => dispatch(setField(elt.var, e.target.value))} type='text' className='text-input'/>
+            </div>
         })
     break;
     case 'options' :
