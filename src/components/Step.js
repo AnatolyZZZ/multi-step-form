@@ -2,7 +2,7 @@ import steps from '../form-data.json';
 import { useSelector, useDispatch } from 'react-redux';
 import { Confirmation } from './Confirmation';
 import { ErrorMsg } from './ErrorMsg';
-import { setField } from '../actions';
+import { setField, changeValid } from '../actions';
 import './Step.css'
 
 export const Step = (props) => {
@@ -17,12 +17,17 @@ let mainBlock;
 switch (type) {
     case 'freeform' : 
         mainBlock = cur.questions.map((elt, idx) => {
-            return <div>
+            const classes = cur_state.valid[elt.var] ? 'text-input' : 'text-input wrong-field'
+            return <div key={idx}>
                 <div className='flex-between'>
                     <p className='label'>{elt.name}</p>
                     <ErrorMsg var={elt.var}/>
                 </div>
-                <input key={idx} placeholder={elt.placeholder} value={cur_state[elt.var]} onChange={(e) => dispatch(setField(elt.var, e.target.value))} type='text' className='text-input'/>
+                <input key={idx} placeholder={elt.placeholder} value={cur_state[elt.var]} onChange={(e) => {
+                    dispatch(setField(elt.var, e.target.value));
+                    dispatch(changeValid(elt.var));
+                    }} 
+                    type='text' className={classes}/>
             </div>
         })
     break;
@@ -66,11 +71,16 @@ switch (type) {
 
 
     return <div className='Step'>
+            <div className='step-content'>
+                <div className='container mooved'>
+                    <h2 className='step-header'>{cur.header}</h2>
+                    <h3 className='step-subheader'>{cur.subheader}</h3>
+                    {mainBlock}
+                </div> 
+            </div>
             <div className='container'>
-                <h2 className='step-header'>{cur.header}</h2>
-                <h3 className='step-subheader'>{cur.subheader}</h3>
-                {mainBlock}
                 <Confirmation/>
-            </div>   
+            </div>
+            
         </div>
 }

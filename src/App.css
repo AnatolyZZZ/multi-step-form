@@ -5,8 +5,9 @@
 }
 body {
   margin: 0;
-  --dark-blue-color : rgb(10, 28, 63);
+  --dark-blue-color : rgb(19, 55, 120);
   --light-blue-color : rgb(177, 217, 255);
+  --super-light-gray-color : rgb(225, 225, 225);
   --light-gray-color : rgb(173, 173, 173);
   color: var(--dark-blue-color);
 }

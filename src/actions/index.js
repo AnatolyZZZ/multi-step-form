@@ -1,6 +1,6 @@
-const SET_FIELD = 'SET_FIELD', SET_PAYMENT = "SET_PAYMENT", SET_PLAN = 'SET_PLAN', ADD_OPTION = "ADD_OPTION", REMOVE_OPTION = 'REMOVE_OPTION', SET_STEP = 'SET_STEP', CHANGE_VALID = 'CHANGE_VALID'
+const SET_FIELD = 'SET_FIELD', SET_PAYMENT = "SET_PAYMENT", SET_PLAN = 'SET_PLAN', ADD_OPTION = "ADD_OPTION", REMOVE_OPTION = 'REMOVE_OPTION', SET_STEP = 'SET_STEP', CHANGE_VALID = 'CHANGE_VALID', CHANGE_UNVALID = 'CHANGE_UNVALID'
 
-export {SET_FIELD, SET_PAYMENT, SET_PLAN, ADD_OPTION, REMOVE_OPTION, SET_STEP, CHANGE_VALID}
+export {SET_FIELD, SET_PAYMENT, SET_PLAN, ADD_OPTION, REMOVE_OPTION, SET_STEP, CHANGE_VALID, CHANGE_UNVALID}
 
 export const setField = (name, str) => {
     return {
@@ -48,6 +48,13 @@ export const setStep = (id) => {
 export const changeValid = (name) => {
     return {
         type : CHANGE_VALID,
-        field: name
+        payload: name
+    }
+}
+
+export const changeUnValid = (name) => {
+    return {
+        type : CHANGE_UNVALID,
+        payload : name
     }
 }

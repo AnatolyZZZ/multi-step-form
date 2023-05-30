@@ -5,7 +5,26 @@
 .confirmation {
     margin-top: auto;
     width: 100%;
+    padding: 1em;
 }
 .forwardBtn {
-   background-color: blue;
+   background-color: var(--dark-blue-color);
+   color: #fff;
+ 
+}
+.backBtn {
+    background-color: transparent;
+    color: var(--lught-gray-color);
+}
+.forwardBtn , .backBtn {
+    border-radius: 0.5em;
+    border: 0;
+    font-weight: 500;
+    height: 3em;
+    padding: 0 1.5em;
+}
+
+.backBtn:hover, .forwardBtn:hover, .backBtn:focus, .forwardBtn:focus {
+    cursor: pointer;
+    opacity: 0.9;
 }

@@ -1,10 +1,10 @@
-import  {SET_FIELD, SET_PAYMENT, SET_PLAN, ADD_OPTION, REMOVE_OPTION, SET_STEP, CHANGE_VALID} from '../actions/index.js'
+import  {SET_FIELD, SET_PAYMENT, SET_PLAN, ADD_OPTION, REMOVE_OPTION, SET_STEP, CHANGE_VALID, CHANGE_UNVALID} from '../actions/index.js'
 
 const initialState  = {
     name : '',
     email : '',
     phone : '',
-    valid : {name : false, email : true, phone : true},
+    valid : {name : true, email : true, phone : true},
     current_step : 0,
     yearly : 'monthly',
     plan : {},
@@ -33,8 +33,12 @@ export const reducer = (state = initialState, action = {}) => {
             return {...state, current_step : action.payload};
         case CHANGE_VALID : 
             const validation = {...state.valid};
-            validation[action.field] = !validation[action.field]
+            validation[action.payload] = true
             return {...state, valid : validation}
+        case CHANGE_UNVALID : 
+            const _validation = {...state.valid};
+            _validation[action.payload] = false;
+            return {...state, valid : _validation}
         default : 
             return {...state}
     }
