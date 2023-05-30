@@ -5,9 +5,9 @@ const initialState  = {
     email : '',
     phone : '',
     valid : {name : true, email : true, phone : true},
-    current_step : 0,
+    current_step : 1,
     yearly : 'monthly',
-    plan : {},
+    plan : null,
     add_ons : []
 }
 

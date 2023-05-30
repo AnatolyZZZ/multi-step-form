@@ -49,7 +49,7 @@
 }
 
 
-@media (min-width : 640px) {
+@media (min-width : 900px) {
     .desktop-only {
         display: inline;
     }

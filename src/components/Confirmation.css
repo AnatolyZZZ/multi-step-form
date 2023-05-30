@@ -26,5 +26,5 @@
 
 .backBtn:hover, .forwardBtn:hover, .backBtn:focus, .forwardBtn:focus {
     cursor: pointer;
-    opacity: 0.9;
+    opacity: 0.85;
 }

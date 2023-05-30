@@ -9,10 +9,11 @@ body {
   --light-blue-color : rgb(177, 217, 255);
   --super-light-gray-color : rgb(225, 225, 225);
   --light-gray-color : rgb(173, 173, 173);
+  --colored-background : rgb(246, 247, 254);
   color: var(--dark-blue-color);
 }
 
-@media (min-width : 640px) {
+@media (min-width : 900px) {
   .App {
     display: flex;
     padding: 1em;
