@@ -4,6 +4,7 @@ import { Control } from './Control';
 import { FreeForm } from './FreeForm';
 import { Options } from './Options';
 import { MultiChoice } from './MultiChoice';
+import { Summary } from './Summary';
 import './Step.css'
 
 export const Step = (props) => {
@@ -27,6 +28,9 @@ switch (type) {
     break;
     case 'multichoice' :
         mainBlock = <MultiChoice options = {cur.options[yearly]} var={cur.var}/>
+        break;
+    case 'summary' :
+        mainBlock = <Summary/>
         break;
     default :
         mainBlock = <></>

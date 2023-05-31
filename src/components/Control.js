@@ -58,7 +58,7 @@ export const Control = (props) => {
                     dispatch(setStep(step + 1));
                 }
                 break;
-            case steps.length - 1 :
+            case steps.steps.length - 1 :
                 break;
             default :
                 dispatch(setStep(step + 1));
@@ -66,9 +66,14 @@ export const Control = (props) => {
 
     }
     // different for last step
-    const nextStep = step === steps.length - 1 ? "Confirm" : "Next Step";
+    let nextStep = "Next Step"
+    let classes = "forwardBtn"
+    if (step === steps.steps.length - 1) {
+        nextStep = "Confirm";
+        classes = "forwardBtn purpleBtn"
+    }
     return <div className="flex-between confirmation">
         {(step === 0) ? <div></div> : <button className="backBtn" onClick={(e) => {dispatch(setStep(step - 1))}}>Go Back</button>}
-        <button className="forwardBtn" onClick={(e) => {goNext()}}>{nextStep}</button>
+        <button className={classes} onClick={(e) => {goNext()}}>{nextStep}</button>
     </div>
 }

@@ -7,7 +7,6 @@ const initialState  = {
     yearly : 'monthly',
     plan : null,
     multichoice : {add_ons : new Set()},
-    add_ons : []
 }
 
 export const reducer = (state = initialState, action = {}) => {
