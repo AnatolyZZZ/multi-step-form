@@ -11,7 +11,6 @@ export const setField = (name, str) => {
 }
 
 export const setPayment = (yearly) => {
-    console.log(yearly)
     return {
         type: SET_PAYMENT,
         payload : yearly

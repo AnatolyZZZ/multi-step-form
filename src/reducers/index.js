@@ -1,9 +1,7 @@
 import  {SET_FIELD, SET_PAYMENT, SET_PLAN, ADD_OPTION, REMOVE_OPTION, SET_STEP, CHANGE_VALID, CHANGE_UNVALID} from '../actions/index.js'
 
 const initialState  = {
-    name : '',
-    email : '',
-    phone : '',
+    fields : {name : '', email : '', phone : ''},
     valid : {name : true, email : true, phone : true},
     current_step : 1,
     yearly : 'monthly',
@@ -14,9 +12,9 @@ const initialState  = {
 export const reducer = (state = initialState, action = {}) => {
     switch(action.type) {
         case SET_FIELD : 
-            const res = {...state};
+            const res = {...state.fields};
             res[action.field] = action.payload;
-            return res
+            return {...state, fields : res}
         case SET_PAYMENT :
             return {...state, yearly : action.payload}
         case SET_PLAN :

@@ -5,13 +5,13 @@ import {changeUnValid, setStep} from  '../actions';
 
 
 export const Confirmation = (props) => {
-    const state = useSelector(state => state);
+    const fields = useSelector(state => state.fields);
     const dispatch = useDispatch();
-    const step = state.current_step;
+    const step = useSelector(state => state.current_step);
 
 
     const checkEmpty = async (name) => {
-        if (state[name] === "") {
+        if (fields[name] === "") {
             dispatch(changeUnValid(name));
             return false
         } else return true
@@ -19,7 +19,7 @@ export const Confirmation = (props) => {
 
     const checkEmail = async () => {
         const reg = /[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
-        if (!state['email'].match(reg)) {
+        if (!fields['email'].match(reg)) {
             dispatch(changeUnValid('email'));
             return false
         } else return true
@@ -29,7 +29,6 @@ export const Confirmation = (props) => {
         let go = await checkEmpty('name');
         go = go & await checkEmail();
         go = go & await checkEmpty('phone');
-        console.log(go);
         if (go) {
             return true
         } else return false
