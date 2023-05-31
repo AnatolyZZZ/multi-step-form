@@ -56,22 +56,40 @@
     {
         "header" : "Pick add-ons",
         "short" : "Add-ons",
-        "subheader" : "Add-ons help enhance your gaming experience",
+        "subheader" : "Add-ons help enhance your gaming experience.",
         "type" : "multichoice",
-        "options" : [
-            {"name" : "Online service",
-            "feature" : "Access to multiplayer games",
-            "price"  : "+$1/mo"
-            },
-            {"name" : "Larger storage",
-            "feature" : "Extra 1TB of cloud save",
-            "price"  : "+$2/mo"
-            },
-            {"name" : "Customizable Profile",
-            "feature" : "Custom theme on your profile",
-            "price"  : "+$2/mo"
-            }
-        ]
+        "options" : {
+            "monthly" :
+            [
+                {"name" : "Online service",
+                "feature" : "Access to multiplayer games",
+                "price"  : "+$1/mo"
+                },
+                {"name" : "Larger storage",
+                "feature" : "Extra 1TB of cloud save",
+                "price"  : "+$2/mo"
+                },
+                {"name" : "Customizable Profile",
+                "feature" : "Custom theme on your profile",
+                "price"  : "+$2/mo"
+                }
+            ],
+            "yearly" : 
+            [
+                {"name" : "Online service",
+                "feature" : "Access to multiplayer games",
+                "price"  : "+$10/yr"
+                },
+                {"name" : "Larger storage",
+                "feature" : "Extra 1TB of cloud save",
+                "price"  : "+$20/yr"
+                },
+                {"name" : "Customizable Profile",
+                "feature" : "Custom theme on your profile",
+                "price"  : "+$20/yr"
+                }
+            ]
+        }
     },
     {
         "header" : "Finishing up",

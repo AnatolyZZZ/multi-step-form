@@ -3,20 +3,31 @@
     margin: 0 auto;
     position: relative;
 }
-.Step {
+.step {
     width: 100%;
 }
 .step-header {
     margin-bottom: 0.4em;
+    font-size: 1.7rem;
 }
 .flex-small-screen {
     display: flex;
     gap: 1em
 }
+.flex {
+    display: flex;
+    gap: 2em
+}
+.wide {
+    width: 100%
+}
+
+.allign-center {
+    align-items: center;
+}
 .step-subheader {
     color: var(--light-gray-color);
     font-weight: 500;
-    font-size: 0.8rem;
     margin: 0 0 2em 0;
     line-height: 1.5em;
 
@@ -33,13 +44,13 @@
     border: 1px solid var(--super-light-gray-color);
 }
 .text-input:hover, .text-input:focus, .text-input:focus-visible,
-.option:hover, .option:focus, .option:focus-visible, .option:has(input[type='radio']:checked)
+.option:hover, .option:focus, .option:focus-visible, .option:has(input:checked)
  {
-    border-color: rgb(89,82,138);
+    border-color: var(--bright-violet-color);
     outline: 0;
     cursor: pointer;
 }
-.option:has(input[type='radio']:checked)
+.option:has(input:checked)
  { 
     background-color: var(--colored-background);
  }
@@ -73,14 +84,14 @@
 .mooved {
     top: -4em;
     background-color: white;
-    padding: 1em;
+    padding: 1em 2em;
     border-radius: 0.8em;
 }
 .step-content {
     background-color: rgb(234, 242, 254);
 }
 
-.options {
+.options, .add-ons {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -92,14 +103,25 @@
     border: 1px solid var(--super-light-gray-color);
     border-radius: 7px;
 }
-.planName, .planPrice {
+.planName, .planPrice, .feature {
     margin: 0.5em 0;
     font-weight: 500;
+}
+.feature {
+    color: var(--light-gray-color);
+    font-weight: 400;
+}
+.planName {
+    font-size: 1.2rem;
 }
 
 .planPrice {
     color: var(--light-gray-color);
     font-size: 0.8em;
+}
+.add-on-price {
+    color: var(--bright-violet-color);
+    font-weight: 500;
 }
 
 .horizontalRadio {
@@ -142,21 +164,40 @@
     color: var(--light-gray-color);
 }
 
+.customCheckbox {
+    appearance: none;
+    width: 2em;
+    height: 2em;
+    border: 1px solid var(--super-light-gray-color);
+    border-radius: 3px;
+    display: grid;
+    place-content: center;
+}
 
-@media (min-width: 900px) {
+.customCheckbox:checked {
+    background-color: var(--bright-violet-color);
+    border: 0;
+}
+.customCheckbox::before {
+    content: '';
+    width: 1em;
+    height: 1em;
+    color: #fff;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    box-shadow: inset 1em 1em #fff;
+}
+
+
+@media (min-width: 680px) {
     .options {
         flex-direction: row;
     }
-    .option {
+    .option-flex {
         max-width: 30%;
     }
     .flex-small-screen {
         flex-direction: column;
         align-items: flex-start;
-    }
-    .mooved {
-        top: 0;
-        height: 90vh;
     }
     .container {
         width: 70%;
@@ -168,5 +209,11 @@
     }
     .step-content {
         background-color: #fff;
+    }
+}
+@media (min-width: 900px) {
+    .mooved {
+        top: 0;
+        min-height: 85vh;
     }
 }

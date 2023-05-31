@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import {setPlan, setPayment } from '../actions';
+import {setPlan, setPayment, changeValid } from '../actions';
+import { ErrorMsg } from "./ErrorMsg";
 
 export const Options = (props) => {
     const yearly = useSelector(state => state.yearly);
@@ -32,8 +33,8 @@ export const Options = (props) => {
     return <>
             <div className='options'>
                 {props.options[yearly].map((elt, idx) => {
-                return <label htmlFor={yearly + elt.name} key={idx} className='option'>
-                            <div key={idx} className='flex-small-screen'>
+                return <label htmlFor={yearly + elt.name} key={idx} className='option option-flex'>
+                            <div className='flex-small-screen'>
                                 <img src={elt.image} alt='plan' className='planImg'/>
                                 <div>
                                     <p className='planName'>{elt.name}</p>
@@ -43,12 +44,18 @@ export const Options = (props) => {
                                     className='hiddenInput'
                                     type='radio' 
                                     value={yearly + elt.name}
-                                    name={props.header} id={yearly + elt.name} onChange={(e) => {dispatch(setPlan(idx))}}
+                                    name={props.header} id={yearly + elt.name} onChange={(e) => {dispatch(setPlan(idx)); dispatch(changeValid('plan'))}}
                                 />
                             </div>
                         </label>
                 })}
-                </div>
+            </div>
+
+            <div className="flex-between">
+                <div></div>
+                <ErrorMsg var='plan'/>
+            </div>
+
             <div className='horizontalRadio'>
                 <label htmlFor='monthly' className={monthlyClass}>Monthly</label>
                 <div className='custom-radio'>
@@ -56,6 +63,6 @@ export const Options = (props) => {
                     <input type='radio' value='yearly' name='yearly' id='yearly' onChange={(e) => {dispatch(setPayment('yearly'))}}/>
                 </div>
                 <label htmlFor='yearly' className={yearlyClass}>Yearly</label>
-            </div>  
+            </div>
     </>
 }

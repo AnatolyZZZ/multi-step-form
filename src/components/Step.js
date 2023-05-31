@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { Confirmation } from './Confirmation';
 import { FreeForm } from './FreeForm';
 import { Options } from './Options';
+import { MultiChoice } from './MultiChoice';
 import './Step.css'
 
 export const Step = (props) => {
@@ -23,48 +24,9 @@ switch (type) {
     break;
     case 'options' :
         mainBlock = <Options options = {cur.options} header = {cur.header}/>
-        // mainBlock = <>
-        //     <div className='options'>
-        //         {cur.options[yearly].map((elt, idx) => {
-        //         return <label htmlFor={yearly + elt.name} key={idx} className='option'>
-        //                     <div key={idx} className='flex-small-screen'>
-        //                         <img src={elt.image} alt='plan' className='planImg'/>
-        //                         <div>
-        //                             <p className='planName'>{elt.name}</p>
-        //                             <p className='planPrice'>{elt.price}</p>
-        //                         </div>
-        //                         <input 
-        //                             className='hiddenInput'
-        //                             type='radio' 
-        //                             value={yearly + elt.name}
-        //                             name={cur.header} id={yearly + elt.name} onChange={(e) => {dispatch(setPlan(idx))}}
-        //                         />
-        //                     </div>
-        //                 </label>
-        //         })}
-        //         </div>
-        //     <div className='horizontalRadio'>
-        //         <label htmlFor='monthly' className={monthlyClass}>Monthly</label>
-        //         <div className='custom-radio'>
-        //             <input type='radio' value='monthly' name='yearly' id='monthly' onChange={(e) => {dispatch(setPayment('monthly'))}}/>
-        //             <input type='radio' value='yearly' name='yearly' id='yearly' onChange={(e) => {dispatch(setPayment('yearly'))}}/>
-        //         </div>
-        //         <label htmlFor='yearly' className={yearlyClass}>Yearly</label>
-        //     </div>  
-        //     </>
-        
     break;
     case 'multichoice' :
-        mainBlock = cur.options.map((elt, idx) => {
-            return <label for={yearly + elt.name} key={idx}>
-                        <div className='option' >
-                            <img src={elt.image} alt='plan' className='planImg'/>
-                            <p className='planName'>{elt.name}</p>
-                            <p className='planPrice'>{elt.price}</p>
-                            <input className='hiddenInput' type='checkbox' name={yearly + elt.name}/>
-                        </div>
-                    </label>
-        })
+        mainBlock = <MultiChoice options = {cur.options[yearly]}/>
         break;
     default :
         mainBlock = <></>
@@ -73,7 +35,7 @@ switch (type) {
 
 
 
-    return <div className='Step'>
+    return <div className='step'>
             <div className='step-content'>
                 <div className='container mooved'>
                     <h2 className='step-header'>{cur.header}</h2>

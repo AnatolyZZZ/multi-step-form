@@ -7,6 +7,9 @@ export const ErrorMsg = (props) => {
         case 'email' :
             msg = 'Email is invalid'
             break;
+        case 'plan' :
+            msg = 'Please choose option'
+            break;
         default :
             msg = 'This field is required'
     }

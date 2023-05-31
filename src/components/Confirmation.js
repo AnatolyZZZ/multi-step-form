@@ -6,6 +6,7 @@ import {changeUnValid, setStep} from  '../actions';
 
 export const Confirmation = (props) => {
     const fields = useSelector(state => state.fields);
+    const plan = useSelector(state => state.plan);
     const dispatch = useDispatch();
     const step = useSelector(state => state.current_step);
 
@@ -13,6 +14,13 @@ export const Confirmation = (props) => {
     const checkEmpty = async (name) => {
         if (fields[name] === "") {
             dispatch(changeUnValid(name));
+            return false
+        } else return true
+    }
+
+    const checkPlan = async () => {
+        if (plan === null) {
+            dispatch(changeUnValid('plan'));
             return false
         } else return true
     }
@@ -33,12 +41,19 @@ export const Confirmation = (props) => {
             return true
         } else return false
     }
+    
 
     const goNext = async () => {
         let go = false;
         switch (step) {
             case 0 :
                 go = await firstCheck();
+                if (go) {
+                    dispatch(setStep(step + 1));
+                }
+                break;
+            case 1 :
+                go = await checkPlan();
                 if (go) {
                     dispatch(setStep(step + 1));
                 }

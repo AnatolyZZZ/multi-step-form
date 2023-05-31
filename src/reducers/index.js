@@ -2,7 +2,7 @@ import  {SET_FIELD, SET_PAYMENT, SET_PLAN, ADD_OPTION, REMOVE_OPTION, SET_STEP, 
 
 const initialState  = {
     fields : {name : '', email : '', phone : ''},
-    valid : {name : true, email : true, phone : true},
+    valid : {name : true, email : true, phone : true, plan : true},
     current_step : 1,
     yearly : 'monthly',
     plan : null,
