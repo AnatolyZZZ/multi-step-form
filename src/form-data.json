@@ -58,6 +58,7 @@
         "short" : "Add-ons",
         "subheader" : "Add-ons help enhance your gaming experience.",
         "type" : "multichoice",
+        "var" : "add_ons",
         "options" : {
             "monthly" :
             [

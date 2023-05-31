@@ -1,6 +1,6 @@
 import steps from '../form-data.json';
 import { useSelector } from 'react-redux';
-import { Confirmation } from './Confirmation';
+import { Control } from './Control';
 import { FreeForm } from './FreeForm';
 import { Options } from './Options';
 import { MultiChoice } from './MultiChoice';
@@ -26,7 +26,7 @@ switch (type) {
         mainBlock = <Options options = {cur.options} header = {cur.header}/>
     break;
     case 'multichoice' :
-        mainBlock = <MultiChoice options = {cur.options[yearly]}/>
+        mainBlock = <MultiChoice options = {cur.options[yearly]} var={cur.var}/>
         break;
     default :
         mainBlock = <></>
@@ -44,7 +44,7 @@ switch (type) {
                 </div> 
             </div>
             <div className='container'>
-                <Confirmation/>
+                <Control/>
             </div>
             
         </div>

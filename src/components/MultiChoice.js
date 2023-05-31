@@ -1,7 +1,9 @@
-import { useSelector } from "react-redux" 
+import { useSelector, useDispatch} from "react-redux";
+import { toggleSelected } from "../actions";
 
 
 export const MultiChoice = (props) => {
+    const dispatch = useDispatch();
     const yearly = useSelector(state => state.yearly);
     return <div className="add-ons">
         {props.options.map((elt, idx) => {
@@ -11,6 +13,7 @@ export const MultiChoice = (props) => {
                                 type='checkbox'
                                 name={yearly + elt.name}
                                 id={yearly + elt.name}
+                                onChange={(e) => dispatch(toggleSelected(props.var, idx))}
                         /></div>
                         <div className="flex-between wide allign-center">
                             <div>

@@ -1,10 +1,10 @@
 import { useSelector, useDispatch } from "react-redux"
 import steps from '../form-data.json';
-import './Confirmation.css'
+import './Control.css'
 import {changeUnValid, setStep} from  '../actions';
 
 
-export const Confirmation = (props) => {
+export const Control = (props) => {
     const fields = useSelector(state => state.fields);
     const plan = useSelector(state => state.plan);
     const dispatch = useDispatch();
@@ -58,12 +58,14 @@ export const Confirmation = (props) => {
                     dispatch(setStep(step + 1));
                 }
                 break;
+            case steps.length - 1 :
+                break;
             default :
-                go = false;
+                dispatch(setStep(step + 1));
         }
 
     }
-
+    // different for last step
     const nextStep = step === steps.length - 1 ? "Confirm" : "Next Step";
     return <div className="flex-between confirmation">
         {(step === 0) ? <div></div> : <button className="backBtn" onClick={(e) => {dispatch(setStep(step - 1))}}>Go Back</button>}
