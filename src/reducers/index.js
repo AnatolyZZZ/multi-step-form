@@ -1,11 +1,11 @@
-import  {SET_FIELD, SET_PAYMENT, SET_PLAN, SET_STEP, CHANGE_VALID, CHANGE_UNVALID, TOGGLE_SELECTED} from '../actions/index.js'
+import  {SET_FIELD, SET_PAYMENT, SET_OPTION, SET_STEP, CHANGE_VALID, CHANGE_UNVALID, TOGGLE_SELECTED} from '../actions/index.js'
 
 const initialState  = {
     fields : {name : '', email : '', phone : ''},
     valid : {name : true, email : true, phone : true, plan : true},
     current_step : 1,
     yearly : 'monthly',
-    plan : null,
+    options : {plan : null},
     multichoice : {add_ons : new Set()},
 }
 
@@ -17,8 +17,10 @@ export const reducer = (state = initialState, action = {}) => {
             return {...state, fields : res}
         case SET_PAYMENT :
             return {...state, yearly : action.payload}
-        case SET_PLAN :
-            return {...state, plan : action.payload}
+        case SET_OPTION :
+            const _options = {...state.options};
+            _options[action.name] = action.payload;
+            return {...state, options : _options}
         case SET_STEP :
             return {...state, current_step : action.payload};
         case CHANGE_VALID : 

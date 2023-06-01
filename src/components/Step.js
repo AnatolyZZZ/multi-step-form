@@ -24,7 +24,7 @@ switch (type) {
         mainBlock = <FreeForm questions ={cur.questions}/>
     break;
     case 'options' :
-        mainBlock = <Options options = {cur.options} header = {cur.header}/>
+        mainBlock = <Options options = {cur.options} header = {cur.header} var={cur.var}/>
     break;
     case 'multichoice' :
         mainBlock = <MultiChoice options = {cur.options[yearly]} var={cur.var}/>

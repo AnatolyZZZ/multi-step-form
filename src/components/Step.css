@@ -103,10 +103,14 @@
     border: 1px solid var(--super-light-gray-color);
     border-radius: 7px;
 }
-.planName, .planPrice, .feature {
+.planName, .planPrice, .feature, .regular {
     margin: 0.5em 0;
+
+}
+.planName, .planPrice, .feature {
     font-weight: 500;
 }
+
 .feature {
     color: var(--light-gray-color);
     font-weight: 400;
@@ -119,6 +123,7 @@
     color: var(--light-gray-color);
     font-size: 0.8em;
 }
+
 .add-on-price {
     color: var(--bright-violet-color);
     font-weight: 500;

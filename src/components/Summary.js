@@ -4,7 +4,7 @@ import { setStep } from "../actions";
 import './Summary.css'
 
 export const Summary = (props) => {
-    const plan = useSelector(state => state.plan);
+    const plan = useSelector(state => state.options.plan);
     let sum = 0;
     const yearly = useSelector(state => state.yearly);
     const _yearly = yearly === 'monthly' ? 'Monthly' : 'Yearly';
@@ -12,8 +12,7 @@ export const Summary = (props) => {
     const add_ons_set = useSelector(state => state.multichoice.add_ons);
     const add_ons = Array.from(add_ons_set);
     sum += Number(steps.steps[1].options[yearly][plan].price.slice(1,-3));
-    console.log(steps.steps[1].options[yearly][plan].price.slice(1,-3))
-    console.log(sum)
+
     const dispatch = useDispatch();
     return <><div className="summary colored-background">
         <div className="flex-between summary-item align-center underlined-item">
@@ -25,8 +24,6 @@ export const Summary = (props) => {
         </div>
         {add_ons.map((elt, idx) => {
             sum += Number(steps.steps[2].options[yearly][elt].price.slice(2, -3));
-            console.log(steps.steps[2].options[yearly][elt].price.slice(2, -3));
-            console.log(sum)
             return <div className="flex-between summary-item align-center" key={idx}>
                         <p className="add-on-name">{steps.steps[2].options[yearly][elt].name}</p>
                         <p className="add-on-summary-price">{steps.steps[2].options[yearly][elt].price}</p>

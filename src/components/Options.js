@@ -1,20 +1,21 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import {setPlan, setPayment, changeValid } from '../actions';
+import {setOption, setPayment, changeValid } from '../actions';
 import { ErrorMsg } from "./ErrorMsg";
+
+export const ckeckRadio = (name) => {      
+    const r = document.querySelector(`#${name}`);
+    r.checked = true
+    
+}
 
 export const Options = (props) => {
     const yearly = useSelector(state => state.yearly);
     let monthlyClass = yearly === 'monthly' ? 'selected' : 'unselected';
     let yearlyClass = yearly === 'yearly' ? 'selected' : 'unselected';
-    const plan = useSelector (state => state.plan);
+    const option = useSelector (state => state.options[props.var]);
     const dispatch = useDispatch();
 
-    const ckeckRadio = (name) => {      
-            const r = document.querySelector(`#${name}`);
-            r.checked = true
-            
-    }
     useEffect(()=> ckeckRadio(yearly), [yearly]);
     
     // the name of radio =>
@@ -23,28 +24,30 @@ export const Options = (props) => {
     // .name to extract name
     // yearly+name used in rendering as id
     useEffect(()=> {
-        if(plan !== null ) {
-            ckeckRadio(yearly+props.options[yearly][plan].name)
+        if(option !== null ) {
+            ckeckRadio(yearly+props.options[yearly][option].name)
         }
     }
-    , [plan]
+    , [option]
     );
     
     return <>
             <div className='options'>
                 {props.options[yearly].map((elt, idx) => {
+                    let feature = (elt.feature === 'null') ? <></> : <p className="regular">{elt.feature}</p> 
                 return <label htmlFor={yearly + elt.name} key={idx} className='option option-flex'>
                             <div className='flex-small-screen'>
                                 <img src={elt.image} alt='plan' className='planImg'/>
                                 <div>
                                     <p className='planName'>{elt.name}</p>
                                     <p className='planPrice'>{elt.price}</p>
+                                    {feature}
                                 </div>
                                 <input 
                                     className='hiddenInput'
                                     type='radio' 
                                     value={yearly + elt.name}
-                                    name={props.header} id={yearly + elt.name} onChange={(e) => {dispatch(setPlan(idx)); dispatch(changeValid('plan'))}}
+                                    name={props.header} id={yearly + elt.name} onChange={(e) => {dispatch(setOption(props.var, idx)); dispatch(changeValid(props.var))}}
                                 />
                             </div>
                         </label>

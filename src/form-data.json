@@ -15,6 +15,7 @@
         "short" : "Select plan",
         "subheader" : "You have the option of monthly or yearly billing",
         "type" : "options",
+        "var" : "plan",
         "options" : {
             "monthly" : [
                 {"name" : "Arcade",
