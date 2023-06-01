@@ -1,13 +1,20 @@
 import './App.css';
-import {Step} from '../src/components/Step'
 import {Menu} from '../src/components/Menu'
+import { Final } from './components/Final';
+import { Step } from './components/Step';
+import { Route, Routes } from 'react-router-dom';
 
 
 function App() {
   return (
     <div className="App">
       <Menu/>
-      <Step/>
+      <Routes>
+        <Route path='/' Component={Step}/>
+        <Route path='/final' Component={Final}/>
+      </Routes>
+     
+     
     </div>
   );
 }

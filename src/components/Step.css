@@ -194,6 +194,14 @@
 .colored-background {
     background-color: var(--colored-background);
 }
+.centered {
+    text-align: center;
+    padding: 4em 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 
 @media (min-width: 680px) {

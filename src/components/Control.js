@@ -2,12 +2,14 @@ import { useSelector, useDispatch } from "react-redux"
 import steps from '../form-data.json';
 import './Control.css'
 import {changeUnValid, setStep} from  '../actions';
+import { useNavigate } from "react-router-dom";
 
 
 export const Control = (props) => {
     const fields = useSelector(state => state.fields);
     const plan = useSelector(state => state.plan);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const step = useSelector(state => state.current_step);
 
 
@@ -59,6 +61,7 @@ export const Control = (props) => {
                 }
                 break;
             case steps.steps.length - 1 :
+                navigate('/final')
                 break;
             default :
                 dispatch(setStep(step + 1));

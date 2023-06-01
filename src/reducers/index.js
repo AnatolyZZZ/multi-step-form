@@ -3,7 +3,7 @@ import  {SET_FIELD, SET_PAYMENT, SET_OPTION, SET_STEP, CHANGE_VALID, CHANGE_UNVA
 const initialState  = {
     fields : {name : '', email : '', phone : ''},
     valid : {name : true, email : true, phone : true, plan : true},
-    current_step : 1,
+    current_step : 0,
     yearly : 'monthly',
     options : {plan : null},
     multichoice : {add_ons : new Set()},
