@@ -14,7 +14,7 @@ export const MultiChoice = (props) => {
             const substr = name.indexOf(props.var);
             // therefore this will giv empty string or the rest of name wich is idx
             const idx = name.slice(substr+props.var.length)
-            if (multichoice.has(Number(idx))) {
+            if (multichoice.indexOf(Number(idx)) !== -1) {
                 elt.checked = true
             }
         }
