@@ -27,7 +27,7 @@ const basicState  = {
     fields : {name : '', email : '', phone : ''},
     valid : {name : true, email : true, phone : true, plan : true},
     current_step : 0,
-    yearly : 'monthly',
+    yearly : 'yearly',
     options : {plan : null},
     multichoice : {add_ons : []},
 }

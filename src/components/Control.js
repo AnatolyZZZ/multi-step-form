@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 export const Control = (props) => {
     const fields = useSelector(state => state.fields);
-    const plan = useSelector(state => state.plan);
+    const plan = useSelector(state => state.options.plan);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const step = useSelector(state => state.current_step);

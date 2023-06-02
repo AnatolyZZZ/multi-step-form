@@ -107,7 +107,7 @@
     margin: 0.5em 0;
 
 }
-.planName, .planPrice, .feature {
+.planName, .planPrice {
     font-weight: 500;
 }
 

@@ -34,7 +34,7 @@ export const Options = (props) => {
     return <>
             <div className='options'>
                 {props.options[yearly].map((elt, idx) => {
-                    let feature = (elt.feature === 'null') ? <></> : <p className="regular">{elt.feature}</p> 
+                    let feature = (elt.feature === 'null') ? <p className="regular">&#8205;</p> : <p className="regular">{elt.feature}</p> 
                 return <label htmlFor={yearly + elt.name} key={idx} className='option option-flex'>
                             <div className='flex-small-screen'>
                                 <img src={elt.image} alt='plan' className='planImg'/>
