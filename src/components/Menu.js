@@ -2,14 +2,17 @@ import steps from '../form-data.json';
 import './Menu.css'
 import { useSelector, useDispatch } from 'react-redux';
 import { setStep } from '../actions';
+import { useParams, useLocation } from 'react-router-dom';
 
 export const Menu = (props) => {
+    let page = useLocation().pathname;
+    console.log(page)
     const dispatch = useDispatch();
     const cur_step = useSelector(state => state.current_step);
     const steps_with_summary = steps.steps ;
 
     const go = (idx) => {
-        if (idx < cur_step) {
+        if (idx < cur_step & page === "/") {
             dispatch(setStep(idx));
         }
     }
@@ -20,9 +23,12 @@ export const Menu = (props) => {
             if (idx > cur_step) {
                 classes = 'menu-item inactive'
             } else if (idx === cur_step) {
-                classes = 'menu-item active'
+                classes = 'menu-item'
             } else {
-                classes = 'menu-item active clickable'
+                classes = 'menu-item clickable'
+            }
+            if (page !== '/') {
+                classes = 'menu-item'
             }
             const classes2 = (idx === cur_step) ?  'menu-number number-selected' : 'menu-number'
             return <div className={classes} key={idx} onClick={(e) => go(idx)}>
