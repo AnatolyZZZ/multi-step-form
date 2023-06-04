@@ -42,7 +42,7 @@ Users should be able to:
 
 ### What I learned
 
-How to create custom inputs like checkoxes and rario
+How to create custom inputs like checkboxes and radio
 
 ```css
 .custom-radio {
@@ -91,4 +91,4 @@ const trottle = (fn, t) => {
     }
 }
 ```
-And also I worked hard not to make whole thing hardcoded. So if I whant yo make another form I could build it from current components relatively quickly
+And also I worked hard to make whole thing not hardcoded. So if I whant yo make another form I could build it from current components relatively quickly
