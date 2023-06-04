@@ -29,7 +29,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: https://multi-step-form-ouc6.onrender.com
+- Live Site URL: https://anatolyzzz.github.io/multi-step-form/
 
 ## My process
 
@@ -91,4 +91,4 @@ const trottle = (fn, t) => {
     }
 }
 ```
-And also I worked hard to make whole thing not hardcoded. So if I whant yo make another form I could build it from current components relatively quickly
+And also I worked hard to make whole thing not hardcoded. So if I whant to make another form I could build it from current components relatively quickly
