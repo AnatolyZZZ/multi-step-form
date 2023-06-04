@@ -1,3 +1,4 @@
+/* aligning */
 .container {
     width: 90%;
     margin: 0 auto;
@@ -5,10 +6,6 @@
 }
 .step {
     width: 100%;
-}
-.step-header {
-    margin-bottom: 0.4em;
-    font-size: 1.7rem;
 }
 .flex-small-screen {
     display: flex;
@@ -21,17 +18,43 @@
 .wide {
     width: 100%
 }
-
 .align-center {
     align-items: center;
+}
+.centered {
+    text-align: center;
+    padding: 4em 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.step-header {
+    margin-bottom: 0.4em;
+    font-size: 1.7rem;
 }
 .step-subheader {
     color: var(--light-gray-color);
     font-weight: 500;
     margin: 0 0 2em 0;
     line-height: 1.5em;
-
 }
+.invisible {
+    visibility: hidden;
+}
+
+.mooved {
+    top: -4em;
+    background-color: white;
+    padding: 1em 2em;
+    border-radius: 0.8em;
+}
+.step-content {
+    background-color: rgb(234, 242, 254);
+}
+
+/* text inputs */
 
 .text-input {
     width: 100%;
@@ -43,23 +66,14 @@
     border-radius: 5px;
     border: 1px solid var(--super-light-gray-color);
 }
-.text-input:hover, .text-input:focus, .text-input:focus-visible,
-.option:hover, .option:focus, .option:focus-visible, .option:has(input:checked)
- {
-    border-color: var(--bright-violet-color);
-    outline: 0;
-    cursor: pointer;
-}
-.option:has(input:checked)
- { 
-    background-color: var(--colored-background);
- }
 
 .text-input::placeholder {
     color: var(--light-gray-color);
     font-weight: 500;
     font-size: 0.8rem;
 }
+
+/* error handle and component */
 .error {
     color: rgb(218, 0, 0);
 }
@@ -74,22 +88,7 @@
     font-weight: 500;
 }
 
-.invisible {
-    visibility: hidden;
-}
-
-.hiddenInput {
-    display: none;
-}
-.mooved {
-    top: -4em;
-    background-color: white;
-    padding: 1em 2em;
-    border-radius: 0.8em;
-}
-.step-content {
-    background-color: rgb(234, 242, 254);
-}
+/* options component */
 
 .options, .add-ons {
     display: flex;
@@ -103,6 +102,25 @@
     border: 1px solid var(--super-light-gray-color);
     border-radius: 7px;
 }
+
+
+/* behavior */
+.text-input:hover, .text-input:focus, .text-input:focus-visible,
+.option:hover, .option:focus, .option:focus-visible, .option:has(input:checked)
+ {
+    border-color: var(--bright-violet-color);
+    outline: 0;
+    cursor: pointer;
+}
+.option:has(input:checked)
+ { 
+    background-color: var(--colored-background);
+ }
+ .unselected {
+    color: var(--light-gray-color);
+}
+
+/* fonts */
 .planName, .planPrice, .feature, .regular {
     margin: 0.5em 0;
 
@@ -129,6 +147,11 @@
     font-weight: 500;
 }
 
+/* -------------custom inputs----------------  */
+.hiddenInput {
+    display: none;
+}
+/* radio */
 .horizontalRadio {
     display: flex;
     justify-content: center;
@@ -165,10 +188,7 @@
 .custom-radio input::before {
     box-shadow: inset 1em 1em #fff;
 }
-.unselected {
-    color: var(--light-gray-color);
-}
-
+/* checkbox */
 .customCheckbox {
     appearance: none;
     width: 2em;
@@ -191,17 +211,7 @@
     clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
     box-shadow: inset 1em 1em #fff;
 }
-.colored-background {
-    background-color: var(--colored-background);
-}
-.centered {
-    text-align: center;
-    padding: 4em 1em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+/* ---------------------------------------------------- */
 
 
 @media (min-width: 680px) {
@@ -217,8 +227,6 @@
     }
     .container {
         width: 70%;
-        /* display: flex;
-        flex-direction: column; */
     }
     .step-subheader {
         margin: 0 0 3em 0;
