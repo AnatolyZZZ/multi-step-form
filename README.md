@@ -91,4 +91,6 @@ const trottle = (fn, t) => {
     }
 }
 ```
+
 And also I worked hard to make whole thing not hardcoded. So if I whant to make another form, I could build it from current components relatively quickly
+
