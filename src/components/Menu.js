@@ -2,7 +2,7 @@ import steps from '../form-data.json';
 import './Menu.css'
 import { useSelector, useDispatch } from 'react-redux';
 import { setStep } from '../actions';
-import { useParams, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 export const Menu = (props) => {
     let page = useLocation().pathname;
