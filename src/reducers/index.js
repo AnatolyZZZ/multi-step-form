@@ -1,4 +1,4 @@
-import  {SET_FIELD, SET_PAYMENT, SET_OPTION, SET_STEP, CHANGE_VALID, CHANGE_UNVALID, TOGGLE_SELECTED} from '../actions/index.js'
+import  {SET_FIELD, SET_PAYMENT, SET_OPTION, SET_STEP, CHANGE_VALID, CHANGE_UNVALID, TOGGLE_SELECTED, SET_LOADING} from '../actions/index.js'
 
 const save = (state) => {
     localStorage.setItem('state', JSON.stringify(state));
@@ -25,11 +25,12 @@ const trotteledSave = trottle(save, 1000);
 
 const basicState  = {
     fields : {name : '', email : '', phone : ''},
-    valid : {name : true, email : true, phone : true, plan : true},
+    valid : {name : true, email : true, phone : true, plan : true, email_not_occupied : true},
     current_step : 0,
     yearly : 'yearly',
     options : {plan : null},
     multichoice : {add_ons : []},
+    loading : false
 }
 const memoState = localStorage.getItem('state')
 
@@ -70,6 +71,8 @@ export const reducer = (state = memoState ? JSON.parse(memoState) : basicState, 
             } else arr.splice(idx, 1);
             trotteledSave({...state, multichoice : multi})
             return {...state, multichoice : multi}
+        case SET_LOADING : 
+            return {...state, loading: action.payload}
         default : 
             return {...state}
     }

@@ -22,6 +22,9 @@ export const FreeForm = (props) => {
                             onChange={(e) => {
                                 dispatch(setField(elt.var, e.target.value));
                                 dispatch(changeValid(elt.var));
+                                if (elt.var === 'email') {
+                                    dispatch(changeValid('email_not_occupied'))
+                                }
                             }} 
                             type='text'
                             className={classes}

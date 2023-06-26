@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom';
 
 export const Menu = (props) => {
     let page = useLocation().pathname;
-    console.log(page)
+    // console.log(page)
     const dispatch = useDispatch();
     const cur_step = useSelector(state => state.current_step);
     const steps_with_summary = steps.steps ;

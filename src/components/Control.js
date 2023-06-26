@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux"
 import steps from '../form-data.json';
 import './Control.css'
-import {changeUnValid, setStep} from  '../actions';
+import {changeUnValid, setStep, changeValid} from  '../actions';
 import { useNavigate } from "react-router-dom";
 
 
@@ -32,7 +32,31 @@ export const Control = (props) => {
         if (!fields['email'].match(reg)) {
             dispatch(changeUnValid('email'));
             return false
-        } else return true
+        } else {
+            try {
+                const para = {
+                    method : 'POST',
+                    headers :{"Content-Type" : "application/json"},
+                    body : JSON.stringify({email: fields['email']})
+                }
+                // console.log(para);
+                const res =  await fetch('http://localhost:5000/api/users/check', para);
+                const msg_json = await res.json();
+                const msg = msg_json.msg;
+                // console.log(msg)
+                if (msg === "user already exists") {
+                    dispatch(changeUnValid('email_not_occupied'))
+                    return false
+                } else if (msg === "email not found") {
+                    dispatch(changeValid('email_not_occupied'))
+                    return true
+                }
+                
+            } catch (error) {
+                console.log(error)
+                return false
+            }
+        }
     }
 
     const firstCheck  = async () => {

@@ -1,6 +1,6 @@
-const SET_FIELD = 'SET_FIELD', SET_PAYMENT = "SET_PAYMENT", SET_OPTION = 'SET_OPTION', SET_STEP = 'SET_STEP', CHANGE_VALID = 'CHANGE_VALID', CHANGE_UNVALID = 'CHANGE_UNVALID', TOGGLE_SELECTED='TOGGLE_SELECTED'
+const SET_FIELD = 'SET_FIELD', SET_PAYMENT = "SET_PAYMENT", SET_OPTION = 'SET_OPTION', SET_STEP = 'SET_STEP', CHANGE_VALID = 'CHANGE_VALID', CHANGE_UNVALID = 'CHANGE_UNVALID', TOGGLE_SELECTED='TOGGLE_SELECTED', SET_LOADING='SET_LOADING'
 
-export {SET_FIELD, SET_PAYMENT, SET_OPTION, SET_STEP, CHANGE_VALID, CHANGE_UNVALID, TOGGLE_SELECTED}
+export {SET_FIELD, SET_PAYMENT, SET_OPTION, SET_STEP, CHANGE_VALID, CHANGE_UNVALID, TOGGLE_SELECTED, SET_LOADING}
 
 export const setField = (name, str) => {
     return {
@@ -51,5 +51,12 @@ export const toggleSelected = (name, id) => {
         type : TOGGLE_SELECTED,
         payload : id,
         name : name
+    }
+}
+
+export const setLoading = (val) => {
+    return {
+        type: SET_LOADING,
+        payload : val
     }
 }
