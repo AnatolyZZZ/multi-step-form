@@ -40,7 +40,7 @@ export const Control = (props) => {
                     body : JSON.stringify({email: fields['email']})
                 }
                 // console.log(para);
-                const res =  await fetch('http://localhost:5000/api/users/check', para);
+                const res =  await fetch('/api/users/check', para);
                 const msg_json = await res.json();
                 const msg = msg_json.msg;
                 // console.log(msg)
@@ -76,6 +76,7 @@ export const Control = (props) => {
                 go = await firstCheck();
                 if (go) {
                     dispatch(setStep(step + 1));
+                    localStorage.setItem('ignore', false);
                 }
                 break;
             case 1 :
